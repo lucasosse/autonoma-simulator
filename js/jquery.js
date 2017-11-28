@@ -28,7 +28,7 @@
 			factory( global, true ) :
 			function( w ) {
 				if ( !w.document ) {
-					throw new Error( "jQuery requires a window with a document" );
+					throw new Error( "jQuery requer uma janela com um documento" );
 				}
 				return factory( w );
 			};
@@ -8725,7 +8725,7 @@ function ajaxConvert( s, response, jqXHR, isSuccess ) {
 						} catch ( e ) {
 							return {
 								state: "parsererror",
-								error: conv ? e : "No conversion from " + prev + " to " + current
+								error: conv ? e : "Sem conversao de " + prev + " para " + current
 							};
 						}
 					}
