@@ -90,13 +90,13 @@ function isAutomataComplete() {
 		}
 
 		if (exitSymbols.length != 0) {
-			error += "state #" + stateList[i].id + " has no exit transition containing the symbols " + exitSymbols + ".<br>";
+			error += "state #" + stateList[i].id + " nao tem transição de saida contendo os simbolos " + exitSymbols + ".<br>";
 			result = false;
 		}
 	}
 
 	if (!result) {
-		logError("AUTOMATA NOT COMPLETE", error);
+		logError("AUTOMATO NAO COMPLETO", error);
 	}
 	return result;
 }
@@ -153,10 +153,10 @@ function logResult(final_state_name, accept) {
 
 	var txt = "[input: \"<b>" + runInfo.input + "</b>\", ";
 	if (accept) {
-		txt += "end state: <b>" + final_state_name + "</b>] - accepted. <br><br>";
+		txt += "end state: <b>" + final_state_name + "</b>] - aceito. <br><br>";
 	}
 	else {
-		txt += "end state: <b>" + final_state_name + "</b>] - rejected. <br><br>";
+		txt += "end state: <b>" + final_state_name + "</b>] - rejeitado. <br><br>";
 	}
 
 	$("#results").append(txt);
@@ -168,7 +168,7 @@ function validateInput() {
 	var incorrect_symbols = [];
 
 	if (aux == null || aux.length == 0) {
-		logError("NONE", "automata is good to go.");
+		logError("NENHUM", "automato esta funcional.");
 		result = false;
 	}
 	else {
@@ -182,22 +182,22 @@ function validateInput() {
 	}
 
 	if (incorrect_symbols.length != 0) {
-		logError("IMPOSSIBLE INPUT", "the symbols \'" + incorrect_symbols + "\' don't exist in the alphabet.");
+		logError("ENTRADA IMPOSSIVEL", "os simbolos \'" + incorrect_symbols + "\' nao existem no alfabeto.");
 		result = false;
 	}
 
 	if (getInitialState() == null) {
-		logError("NO INITIAL STATE", "automata doesn't have an initial state.")
+		logError("SEM ESTADO INICIAL", "automato nao tem um estado inicial.")
 		result = false;
 	}
 
 	if (!isThereFinalState()) {
-		logError("NO FINAL STATE", "automata doesn't have a final state.")
+		logError("SEM ESTADO FINAL", "automato nao tem um estado final.")
 		result = false;
 	}
 
 	if (alphabet == []) {
-		logError("NO ALPHABET", "alphabet has not been set.")
+		logError("SEM ALFABETO", "alfabeto nao definido.")
 		result = false;
 	}
 
@@ -206,7 +206,7 @@ function validateInput() {
 	}
 
 	if (result) {
-		logError("NONE", "automata is good to go.");
+		logError("NENHUM", "automato esta funcional.");
 	}
 
 	$("#run-button").prop("disabled", !result);
